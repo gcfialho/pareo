@@ -1,0 +1,16 @@
+# Dependências e saídas geradas
+node_modules/
+dist/
+assets/css/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Ferramentas locais
+.playwright-mcp/
+
+# Planilhas e dados pessoais: nunca publicar
+*.xlsx
+*.xls
+*.csv
