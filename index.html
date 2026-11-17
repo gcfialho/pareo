@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Páreo: CLT × PJ na ponta do lápis</title>
+  <meta name="description" content="Quanto vale um salário CLT com benefícios, quanto faturar como PJ para empatar e qual rende mais. Regras de 2026 e cotação do dólar de hoje." />
+  <meta name="author" content="gcfialho" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Páreo: CLT × PJ na ponta do lápis" />
+  <meta property="og:description" content="Quanto o CLT vale de verdade e quanto faturar como PJ para ser páreo. Regras de 2026 e dólar de hoje." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="https://gcfialho.github.io/pareo/" />
+  <meta property="og:image" content="https://gcfialho.github.io/pareo/assets/img/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="canonical" href="https://gcfialho.github.io/pareo/" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- CSS compilado pelo Tailwind a partir de src/styles.css (npm run dev ou npm run build) -->
+  <link rel="stylesheet" href="assets/css/pareo.css" />
+</head>
+<body class="bg-canvas font-sans text-ink antialiased">
+  <header class="border-b border-line bg-surface">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+      <div class="flex items-center justify-between gap-4">
+        <a href="./" class="-m-1 flex items-center gap-2.5 rounded-lg p-1" aria-label="Páreo, voltar ao início">
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0f172a"/><rect x="7" y="7.5" width="18" height="2" rx="1" fill="#ffffff"/><rect x="8.5" y="12" width="6" height="12.5" rx="2" fill="#3b6fe0"/><rect x="17.5" y="12" width="6" height="12.5" rx="2" fill="#16a067"/></svg>
+          <span class="text-lg font-bold tracking-tight">Páreo</span>
+        </a>
+        <nav aria-label="Principal" class="flex items-center gap-1">
+          <a class="nav-link" href="guia/">Como funciona</a>
+          <a class="nav-link" href="https://github.com/gcfialho/pareo" rel="noopener"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="sr-only sm:not-sr-only">GitHub</span></a>
+        </nav>
+      </div>
+      <h1 class="mt-6 text-2xl font-bold tracking-tight text-balance sm:text-3xl">
+        <span class="text-clt-600">CLT</span> × <span class="text-pj-600">PJ</span>: quanto sobra de verdade
+      </h1>
+      <p class="mt-1 max-w-2xl text-sm text-ink-muted text-pretty">
+        Quanto o CLT vale de verdade e quanto faturar como PJ para ser páreo. Serviços de TI pelo Simples Nacional, regras de <span data-ano>2026</span> e dólar de hoje.
+      </p>
+
+      <fieldset id="modos" class="mt-5">
+        <legend class="sr-only">O que você quer calcular</legend>
+        <div class="grid grid-cols-3 gap-1 rounded-xl bg-surface-sunken p-1 sm:max-w-2xl">
+          <label class="seg"><input type="radio" name="modo" value="clt" class="sr-only" />Só CLT</label>
+          <label class="seg"><input type="radio" name="modo" value="meta" class="sr-only" />Quanto faturar como PJ</label>
+          <label class="seg"><input type="radio" name="modo" value="comparar" class="sr-only" />Comparar CLT e PJ</label>
+        </div>
+        <p id="modo-descricao" class="mt-2 text-sm text-ink-muted text-pretty"></p>
+      </fieldset>
+    </div>
+  </header>
+
+  <main class="mx-auto grid max-w-7xl items-start gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[360px_minmax(0,1fr)]">
+    <!-- ───────────── Entradas ───────────── -->
+    <form id="form" class="space-y-5" autocomplete="off" novalidate>
+      <section class="card border-t-4 border-t-clt-500" aria-labelledby="t-clt">
+        <h2 id="t-clt" class="card-title"><span class="dot bg-clt-500" aria-hidden="true"></span>Proposta CLT</h2>
+        <div id="fields-clt" class="grid grid-cols-2 gap-3"></div>
+        <details class="mt-3">
+          <summary class="summary">Ajustes do CLT</summary>
+          <div id="fields-clt-adv" class="mt-3 grid grid-cols-2 gap-3"></div>
+        </details>
+      </section>
+
+      <section class="card border-t-4 border-t-pj-500" aria-labelledby="t-pj" data-modos="meta comparar">
+        <h2 id="t-pj" class="card-title"><span class="dot bg-pj-500" aria-hidden="true"></span>Empresa PJ no Simples</h2>
+        <p class="-mt-2 mb-4 text-xs text-ink-muted text-pretty" data-modos="meta">Não precisa informar o faturamento: a página calcula o valor que empata com o CLT.</p>
+        <div id="fields-pj" class="grid grid-cols-2 gap-3"></div>
+        <details class="mt-3">
+          <summary class="summary">Ajustes da empresa: regime, câmbio, custos e pró-labore</summary>
+          <div id="fields-pj-adv" class="mt-3 grid grid-cols-2 gap-3"></div>
+        </details>
+      </section>
+
+      <div class="flex flex-wrap items-center justify-between gap-3 px-1">
+        <p class="max-w-[24ch] text-xs leading-relaxed text-ink-subtle text-pretty">Estimativa. Confirme com um contador antes de decidir.</p>
+        <button id="btn-reset" type="button" class="btn">Restaurar o exemplo</button>
+      </div>
+    </form>
+
+    <!-- ───────────── Resultados ───────────── -->
+    <div class="min-w-0 space-y-6">
+      <!-- 1. A resposta -->
+      <section id="resultado" class="card scroll-mt-4" aria-labelledby="t-resultado"></section>
+      <p id="anuncio" class="sr-only" role="status"></p>
+
+      <!-- 2. Entender e testar cenários -->
+      <section class="card" aria-labelledby="t-barras">
+        <h2 id="t-barras" class="card-title">O que fica com você e o que sai, em um ano</h2>
+        <div id="barras" class="space-y-8"></div>
+      </section>
+
+      <section class="card" aria-labelledby="t-cenarios" data-modos="meta comparar">
+        <h2 id="t-cenarios" class="card-title">E se…?</h2>
+        <fieldset>
+          <legend class="sr-only">Escolha o cenário</legend>
+          <div id="abas" class="grid auto-cols-fr grid-flow-col gap-1 rounded-xl bg-surface-sunken p-1 sm:inline-grid"></div>
+        </fieldset>
+        <div id="cenario" class="mt-5"></div>
+      </section>
+
+      <!-- 3. Detalhes do cálculo -->
+      <details id="detalhes" class="card group p-0">
+        <summary class="flex cursor-pointer select-none items-center justify-between gap-4 rounded-2xl p-5 hover:bg-surface-sunken/60">
+          <span>
+            <span class="block text-sm font-semibold uppercase tracking-wide text-ink-muted">Cálculo completo</span>
+            <span id="detalhes-resumo" class="mt-1 block text-sm text-ink-muted text-pretty"></span>
+          </span>
+          <svg class="h-5 w-5 shrink-0 text-ink-muted transition-transform duration-150 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </summary>
+        <div class="space-y-8 border-t border-line p-5">
+          <div id="sec-detalhe" class="grid gap-8 xl:grid-cols-2">
+            <div class="min-w-0">
+              <h3 class="mb-3 flex items-center gap-2 text-sm font-semibold"><span class="dot bg-clt-500" aria-hidden="true"></span>CLT mês a mês</h3>
+              <div id="detalhe-clt" class="relative overflow-x-auto"></div>
+            </div>
+            <div class="min-w-0" data-modos="meta comparar">
+              <h3 class="mb-3 flex items-center gap-2 text-sm font-semibold"><span class="dot bg-pj-500" aria-hidden="true"></span>PJ mês a mês</h3>
+              <div id="detalhe-pj" class="relative overflow-x-auto"></div>
+            </div>
+          </div>
+
+          <div data-modos="meta comparar">
+            <h3 class="mb-2 text-sm font-semibold">Anexo III ou Anexo V</h3>
+            <p class="mb-4 max-w-prose text-sm text-ink-muted text-pretty">
+              O anexo sai do Fator R: com pró-labore de 28% ou mais do faturamento, a empresa fica no Anexo III, que cobra menos imposto, mas o pró-labore paga INSS e IR. Com pró-labore menor, cai no Anexo V, com DAS maior. O Páreo testa as duas estratégias.
+            </p>
+            <div id="regimes" class="relative overflow-x-auto"></div>
+          </div>
+
+          <div>
+            <h3 class="mb-2 text-sm font-semibold">Premissas</h3>
+            <ul id="premissas" class="max-w-prose list-disc space-y-2 pl-5 text-sm text-ink-muted text-pretty"></ul>
+            <p class="mt-4 text-sm text-ink-muted">Cada regra, com fontes e exemplos, está explicada no guia: <a class="font-medium text-clt-700 underline decoration-clt-700/40 underline-offset-2 hover:decoration-clt-700" href="guia/como-a-conta-e-feita.html">como a conta é feita</a>.</p>
+          </div>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <!-- @rodape -->
+
+  <!-- Resumo fixo no celular, escondido enquanto o resultado está visível -->
+  <div id="barra-fixa" class="fixed inset-x-0 bottom-0 z-20 border-t border-line bg-surface/95 px-4 pt-3 backdrop-blur lg:hidden" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom))" hidden></div>
+
+  <script src="assets/js/params.js"></script>
+  <script src="assets/js/calc.js"></script>
+  <script src="assets/js/cotacao.js"></script>
+  <script src="assets/js/formato.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

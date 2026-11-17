@@ -1,0 +1,50 @@
+/* Entrada do Tailwind. O build (scripts/build.mjs) gera dist/assets/css/pareo.css. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card { @apply rounded-2xl border border-line bg-surface p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]; }
+  .card-title { @apply mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-ink-muted; }
+  .dot { @apply inline-block h-2.5 w-2.5 shrink-0 rounded-full; }
+  .summary { @apply -mx-1 cursor-pointer select-none rounded px-1 py-1.5 text-sm font-medium text-ink-muted hover:text-ink; }
+
+  /* Campos */
+  .field-label { @apply mb-1 block text-xs font-medium text-ink-muted; }
+  .field-input {
+    @apply w-full rounded-lg border border-line-control bg-surface px-3 py-2 text-base tabular-nums text-ink outline-none sm:text-sm;
+    @apply transition-[border-color,box-shadow] duration-150 focus:border-focus focus:ring-1 focus:ring-focus;
+  }
+  .field-hint { @apply mt-1 block text-xs leading-snug text-ink-subtle text-pretty; }
+  .field-erro { @apply mt-1 block text-xs font-medium text-out; }
+  .field-input[aria-invalid="true"] { @apply border-out focus:border-out focus:ring-out; }
+  .affix { @apply pointer-events-none absolute inset-y-0 flex items-center text-xs font-medium text-ink-muted; }
+
+  /* Botões */
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line-control bg-surface px-3 py-2 text-sm font-medium text-ink transition-transform duration-150 hover:bg-surface-sunken active:scale-[0.96]; }
+  .btn-link { @apply -my-1 inline-block rounded py-1 text-sm font-medium text-clt-700 underline decoration-clt-700/40 underline-offset-2 hover:decoration-clt-700; }
+
+  /* Tabelas */
+  .tbl { @apply w-full text-sm tabular-nums; }
+  .tbl th { @apply py-1.5 text-left text-xs font-semibold uppercase tracking-wide text-ink-muted; }
+  .tbl tbody th { @apply py-1.5 text-sm font-normal normal-case tracking-normal text-ink; }
+  .tbl td, .tbl tbody th { @apply border-t border-line; }
+  .tbl .v { @apply whitespace-nowrap pl-4 text-right; }
+
+  /* Controle segmentado: rádios nativos escondidos, o rótulo é o alvo */
+  .seg { @apply flex min-h-[44px] cursor-pointer items-center justify-center rounded-lg px-3 py-2 text-center text-sm font-medium leading-tight text-ink-muted text-balance transition-[background-color,box-shadow,color] duration-150 hover:text-ink has-[:checked]:bg-surface has-[:checked]:font-semibold has-[:checked]:text-ink has-[:checked]:shadow-[0_1px_2px_rgba(15,23,42,0.12),0_0_0_1px_rgba(15,23,42,0.06)] has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-focus; }
+
+  /* Links do rodapé escuro e do topo */
+  .rodape-link { @apply rounded text-noite-texto underline-offset-4 hover:text-white hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white; }
+  .nav-link { @apply inline-flex min-h-[40px] items-center gap-2 whitespace-nowrap rounded-lg px-2.5 sm:px-3 text-sm font-medium text-ink-muted hover:bg-surface-sunken hover:text-ink aria-[current=page]:bg-surface-sunken aria-[current=page]:text-ink; }
+
+  /* Menu lateral do guia */
+  .guia-link { @apply block rounded-lg px-3 py-2 text-sm text-ink-muted hover:bg-surface-sunken hover:text-ink aria-[current=page]:bg-surface aria-[current=page]:font-semibold aria-[current=page]:text-ink aria-[current=page]:shadow-[0_1px_2px_rgba(15,23,42,0.08),0_0_0_1px_rgba(15,23,42,0.06)]; }
+
+  /* Tabelas do guia: rolam sozinhas no celular, sem empurrar a página */
+  .prose .tabela { @apply relative my-6 overflow-x-auto; }
+  .prose .tabela table { @apply my-0; }
+
+  .neg { @apply text-out; }
+  .pos { @apply text-pj-700; }
+}

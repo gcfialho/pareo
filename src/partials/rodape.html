@@ -1,0 +1,68 @@
+<!--
+  Rodapé compartilhado pela calculadora e pelas páginas do guia.
+  O build troca: {{base}} (caminho até a raiz do site), {{ano}}, {{atualizado}} e {{espacoInferior}}.
+-->
+<footer class="bg-noite text-noite-texto {{espacoInferior}}">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="grid gap-12 py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16">
+      <div>
+        <a href="{{base}}" class="rodape-link -m-1 inline-flex items-center gap-2.5 p-1 text-white" aria-label="Páreo, voltar à calculadora">
+          <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#1e293b"/><rect x="7" y="7.5" width="18" height="2" rx="1" fill="#ffffff"/><rect x="8.5" y="12" width="6" height="12.5" rx="2" fill="#3b6fe0"/><rect x="17.5" y="12" width="6" height="12.5" rx="2" fill="#16a067"/></svg>
+          <span class="text-lg font-bold tracking-tight">Páreo</span>
+        </a>
+        <p class="mt-6 text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl">
+          <span class="block"><span class="text-noite-clt">CLT</span> × <span class="text-noite-pj">PJ</span></span>
+          <span class="block">na ponta do lápis.</span>
+        </p>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-noite-suave text-pretty">
+          Quanto o CLT vale de verdade e quanto faturar como PJ para ser páreo. Os valores que você digita ficam no seu navegador.
+        </p>
+      </div>
+
+      <div class="grid gap-10 sm:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)_minmax(0,1.15fr)] sm:gap-8">
+        <nav aria-labelledby="rodape-conta">
+          <h2 id="rodape-conta" class="text-sm font-semibold text-white">Entenda a conta</h2>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a class="rodape-link" href="{{base}}guia/como-a-conta-e-feita.html">Como a conta é feita</a></li>
+            <li><a class="rodape-link" href="{{base}}guia/clt.html">CLT na prática</a></li>
+            <li><a class="rodape-link" href="{{base}}guia/pj-simples.html">PJ no Simples Nacional</a></li>
+            <li><a class="rodape-link" href="{{base}}guia/mudancas-2026.html">O que mudou em 2026</a></li>
+            <li><a class="rodape-link" href="{{base}}guia/erros-comuns.html">Erros comuns</a></li>
+            <li><a class="rodape-link" href="{{base}}guia/fontes.html">Tabelas e fontes</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-labelledby="rodape-projeto">
+          <h2 id="rodape-projeto" class="text-sm font-semibold text-white">O projeto</h2>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a class="rodape-link" href="https://github.com/gcfialho/pareo" rel="noopener">Código no GitHub</a></li>
+            <li><a class="rodape-link" href="https://github.com/gcfialho/pareo/issues/new" rel="noopener">Reportar um erro</a></li>
+            <li><a class="rodape-link" href="https://github.com/gcfialho/pareo/blob/main/docs/09-arquitetura.md" rel="noopener">Documentação técnica</a></li>
+            <li><a class="rodape-link" href="https://github.com/gcfialho/pareo/blob/main/LICENSE" rel="noopener">Licença MIT</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="text-sm font-semibold text-white">Quem fez</h2>
+          <div class="mt-4 flex items-center gap-3">
+            <img src="{{base}}assets/img/autor.png" alt="" width="44" height="44" class="h-11 w-11 rounded-full outline outline-1 -outline-offset-1 outline-white/10" loading="lazy" decoding="async" />
+            <div class="min-w-0">
+              <p class="text-sm font-semibold text-white">Guilherme Fialho</p>
+              <p class="text-sm text-noite-suave">Engenheiro de dados e ML</p>
+            </div>
+          </div>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a class="rodape-link" href="https://gcfialho.github.io" rel="noopener">Portfólio</a></li>
+            <li><a class="rodape-link" href="https://github.com/gcfialho" rel="noopener">GitHub</a></li>
+            <li><a class="rodape-link" href="https://www.linkedin.com/in/guilherme-cagide-fialho/" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-2 border-t border-noite-linha py-6 text-xs leading-relaxed text-noite-suave sm:flex-row sm:items-start sm:justify-between sm:gap-8">
+      <p class="max-w-2xl text-pretty">Regras de {{ano}}, com tabelas atualizadas em {{atualizado}}. O Páreo faz uma estimativa: confirme com um contador antes de decidir.</p>
+      <p class="shrink-0">© {{ano}} Guilherme Fialho. Licença MIT.</p>
+    </div>
+  </div>
+</footer>
